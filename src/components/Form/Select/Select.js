@@ -3,8 +3,9 @@ import { item } from '../../../animations/appear'
 import { InputWrapper, Label } from '../commonStyles'
 import { FormSelect } from './SelectStyles'
 import PropTypes from 'prop-types'
+import ErrorText from '../Helpers/Error/ErrorText'
 
-const Select = ({ id, label, children, ...props }) => {
+const Select = ({ id, label, children, error, ...props }) => {
   return (
     <InputWrapper variants={item}>
       <Label htmlFor={id}>{label}</Label>
@@ -14,6 +15,7 @@ const Select = ({ id, label, children, ...props }) => {
         </option>
         {children}
       </FormSelect>
+      {error && <ErrorText text={error} />}
     </InputWrapper>
   )
 }
@@ -23,5 +25,6 @@ export default Select
 Select.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string,
+  error: PropTypes.string,
   children: PropTypes.any
 }
