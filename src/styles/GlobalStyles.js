@@ -14,6 +14,17 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+  }
+
+  body,
+  input,
+  textarea,
+  label,
+  button {
+    font-family: monospace;
     font-size: 1.6rem;
   }
 
