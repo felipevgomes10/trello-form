@@ -26,6 +26,7 @@ const Home = ({ lists }) => {
   const dispatch = useDispatch()
 
   const nameInput = useRef(null)
+  const doneList = lists.filter(list => list.name === 'Done')
 
   const resetFormValues = useCallback(() => {
     name.setValue('')
@@ -46,7 +47,11 @@ const Home = ({ lists }) => {
 
       if (validation) {
         const { baseUrl, key, token } = getApiParams()
-        const url = `${baseUrl}/cards?key=${key}&token=${token}&idList=${list.value}&name=${name.value}&desc=${description.value}&due=${date.value}`
+        const url = `${baseUrl}/cards?key=${key}&token=${token}&idList=${
+          list.value
+        }&name=${name.value}&desc=${description.value}&due=${
+          date.value
+        }&dueComplete=${list.value === doneList[0].id}`
 
         const result = await dispatch(createCard(url))
 
@@ -55,11 +60,11 @@ const Home = ({ lists }) => {
           dispatch(openSuccessModal())
           setTimeout(() => {
             dispatch(closeSuccessModal())
-          }, 1000)
+          }, 2000)
         }
       }
     },
-    [name, date, description, list, dispatch, resetFormValues]
+    [name, date, description, list, doneList, dispatch, resetFormValues]
   )
 
   return (

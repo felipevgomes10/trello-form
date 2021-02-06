@@ -9,12 +9,35 @@ export const Form = styled(motion.form)`
   width: 800px;
   padding: 3.2rem;
 
+  @media (max-width: 850px) {
+    flex-direction: column;
+    width: 400px;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  @media (max-width: 470px) {
+    width: 300px;
+  }
+
+  @media (max-width: 360px) {
+    width: 250px;
+  }
+
   & > div {
     flex-basis: 50%;
     height: 100%;
+
+    @media (max-width: 850px) {
+      flex-basis: 100%;
+    }
   }
 
   & > div:first-child {
     margin-right: 3.2rem;
+
+    @media (max-width: 850px) {
+      margin: 0;
+    }
   }
 `

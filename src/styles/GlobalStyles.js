@@ -17,6 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     display: grid;
     place-items: center;
     min-height: 100vh;
+    padding: 3.2rem;
   }
 
   body,

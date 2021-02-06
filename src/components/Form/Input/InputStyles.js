@@ -11,6 +11,10 @@ export const FormInput = styled.input`
   border-radius: 5px;
   transition: 0.1s;
 
+  @media (max-width: 850px) {
+    width: 100%;
+  }
+
   &:focus {
     border: 2px solid ${props => props.theme.colors.primary};
   }
