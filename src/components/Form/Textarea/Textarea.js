@@ -5,7 +5,14 @@ import PropTypes from 'prop-types'
 import { item } from '../../../animations/appear'
 import ErrorText from '../Helpers/Error/ErrorText'
 
-const Textarea = ({ id, label, placeholder, error, ...props }) => {
+const Textarea = ({
+  id,
+  label,
+  placeholder,
+  ElementHeight,
+  error,
+  ...props
+}) => {
   return (
     <InputWrapper style={{ height: '100%' }} variants={item}>
       <Label htmlFor={id}>{label}</Label>
@@ -14,6 +21,7 @@ const Textarea = ({ id, label, placeholder, error, ...props }) => {
         id={id}
         name={id}
         placeholder={placeholder}
+        ElementHeight={ElementHeight}
         {...props}
       />
       {error && <ErrorText text={error} />}
@@ -27,5 +35,6 @@ Textarea.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string,
   error: PropTypes.string,
+  ElementHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   placeholder: PropTypes.string
 }
